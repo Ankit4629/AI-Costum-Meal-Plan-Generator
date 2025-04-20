@@ -4,6 +4,17 @@ import google.generativeai as genai
 # Load Gemini API key
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
+# Add Header
+st.markdown(
+    """
+    <div style="text-align: center; margin-bottom: 20px;">
+        <h3 style="margin: 5px;">Ankit Raj - 12319449</h3>
+        <h3 style="margin: 5px;">Amitabh Kaushik - 12319369</h3>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
 # Setup Streamlit UI
 st.title("🥗 AI Custom Meal Plan Generator")
 st.write("Get a personalized meal plan based on your preferences.")
@@ -25,12 +36,13 @@ if st.button("Generate Meal Plan"):
             )
 
             # Load model and generate content
-            model = genai.GenerativeModel(model_name="models/gemini-2.0-flash" )
-  # Fallback model
+            model = genai.GenerativeModel(model_name="models/gemini-2.0-flash")
             response = model.generate_content(prompt)
+
             st.success("Here's your meal plan:")
             st.markdown(response.text)
 
         except Exception as e:
             st.error("⚠️ Something went wrong while generating the meal plan.")
             st.exception(e)
+
