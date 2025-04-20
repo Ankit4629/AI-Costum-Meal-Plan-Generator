@@ -25,7 +25,7 @@ if st.button("Generate Meal Plan"):
             )
 
             # Load model and generate content
-            model = genai.GenerativeModel("models/text-bison-001")  # Fallback model
+            model = genai.GenerativeModel("gemini-pro")  # Fallback model
             response = model.generate_content(prompt)
             st.success("Here's your meal plan:")
             st.markdown(response.text)
