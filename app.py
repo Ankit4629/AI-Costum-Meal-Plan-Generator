@@ -25,7 +25,7 @@ if st.button("Generate Meal Plan"):
             )
 
             # Load model and generate content
-           model = genai.GenerativeModel(model_name="models/gemini-2.0-flash" )
+            model = genai.GenerativeModel(model_name="models/gemini-2.0-flash" )
   # Fallback model
             response = model.generate_content(prompt)
             st.success("Here's your meal plan:")
